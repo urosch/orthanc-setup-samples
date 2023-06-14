@@ -16,10 +16,10 @@ services:
       - orthanc
 
   orthanc:
-    image: osimis/orthanc:23.5.0
+    image: urosss/orthanc:latest
     restart: unless-stopped
     environment:
-      ORTHANC__NAME: "Orthanc for OHIF"
+      ORTHANC__NAME: "PACS"
 
       DICOM_WEB_PLUGIN_ENABLED: "true"
       ORTHANC__DICOM_WEB__PUBLIC_ROOT: "/orthanc/dicom-web/"
@@ -78,6 +78,6 @@ services:
 
     volumes:
       - orthanc-storage:/var/lib/orthanc/db/
- 
+
 volumes:
   orthanc-storage:

@@ -1,8 +1,9 @@
 ######################################################
-
 FROM node:16.15.0-slim as builder
 
-RUN apt-get update && apt-get install -y git
+# add python3 and build essentials
+RUN apt-get update && apt-get install -y git python3 build-essential && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /sources
 RUN git clone https://github.com/OHIF/Viewers.git && cd /sources/Viewers && git checkout v3.6.0
